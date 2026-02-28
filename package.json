@@ -1,0 +1,17 @@
+{
+  "name": "youngsdream-vue-directive",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0"
+  }
+}
