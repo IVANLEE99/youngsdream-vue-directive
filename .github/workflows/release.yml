@@ -41,6 +41,7 @@ jobs:
         with:
           node-version: lts/*
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org' # 必须添加这一行
       # 清理 node_modules 和 pnpm-lock.yaml
       - name: Clean dependencies
         run: rm -rf node_modules pnpm-lock.yaml
@@ -72,6 +73,6 @@ jobs:
       # 发布到 npm
       - name: Publish to npm
         if: github.ref == 'refs/heads/main'
-        run: pnpm -r publish --no-git-checks
+        run: pnpm -r publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
