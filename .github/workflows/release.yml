@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
-          cache: 'pnpm'
+          cache: 'npm'
       # 2️ 安装 pnpm（关键）
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
