@@ -46,7 +46,7 @@ jobs:
         run: rm -rf node_modules pnpm-lock.yaml
       # 安装依赖（workspace 模式）
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       # 安装 Vue2 依赖
       - name: Install Vue2 dependencies
