@@ -1,59 +1,25 @@
-<script setup lang="ts">
-import { ref } from "vue";
-const roles = ["admin", "user"];
-
-const isExposure1 = ref(false);
-const isExposure2 = ref(false);
-const isExposure3 = ref(false);
-const exposure3Time = ref(0);
-
-function fn(data: any) {
-  console.log("曝光:", data);
-  if (data === "test") {
-    isExposure1.value = true;
-  } else if (data === "test2") {
-    isExposure2.value = true;
-  } else if (data === "test3") {
-    isExposure3.value = true;
-    exposure3Time.value++;
-  }
-}
-</script>
-
 <template>
-  <div>
-    <!-- <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" /> -->
+  <div style="width: 100%; overflow: hidden">
     <div class="v-permission-demo">
-      <h2 style="text-align: center">v-permission 权限指令演示</h2>
-      <p>const roles = ["admin", "user"];</p>
+      <h2>v-permission 权限指令演示</h2>
+      <p>data() { return { roles: ["admin", "user"], }; },</p>
       <div v-permission:[roles]="['admin']">
         只有 admin 能看到:v-permission:[roles]="['admin']"
+      </div>
+      <div v-permission:[roles]="['admin2']">
+        只有 admin2 能看到:v-permission:[roles]="['admin2']"
       </div>
       <div v-permission:[roles]="['user']">
         只有 user 能看到:v-permission:[roles]="['user']"
       </div>
-      <hr />
-
       <div v-permission="{ roles, auths: ['admin'] }">
         只有 admin 能看到:v-permission="{ roles, auths: ['admin'] }"
       </div>
       <div v-permission="{ roles, auths: ['user'] }">
         只有 user 能看到:v-permission="{ roles, auths: ['user'] }"
       </div>
-    </div>
-    <!-- <div>只有 admin 能看到</div> -->
-    <hr />
-    <h2>v-exposure 曝光指令演示</h2>
-    <div class="v-exposure-demo">
-      <h2 style="margin-top: 100vh"></h2>
+      <hr />
+      <h2 style="margin-top: 100vh">v-exposure 曝光指令演示</h2>
       <div
         style="height: 200px; background: #f0f0f0"
         class="demo"
@@ -87,25 +53,41 @@ function fn(data: any) {
   </div>
 </template>
 
-<style scoped>
-.v-permission-demo {
-  margin: 20px;
-  padding: 20px;
-  text-align: left;
-}
+<script>
+import { mapState, mapMutations } from "vuex";
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+export default {
+  name: "Home",
+  computed: {
+    ...mapState(["count"]),
+  },
+  data() {
+    return {
+      roles: ["admin", "user"],
+      isExposure1: false,
+      isExposure2: false,
+      isExposure3: false,
+      exposure3Time: 0,
+    };
+  },
+  methods: {
+    ...mapMutations(["increment"]),
+    fn(data) {
+      console.log("曝光:", data);
+      if (data === "test") {
+        this.isExposure1 = true;
+      } else if (data === "test2") {
+        this.isExposure2 = true;
+      } else if (data === "test3") {
+        this.isExposure3 = true;
+        this.exposure3Time++;
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
 .demo {
   display: flex;
   justify-content: center;

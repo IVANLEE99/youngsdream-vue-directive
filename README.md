@@ -23,3 +23,7 @@ pnpm build
 - Core: MIT open-source
 - Pro: Paid license
 - Enterprise customization available
+
+## Examples
+
+[在线操作示例](https://IVANLEE99.github.io/youngsdream-vue-directive/index.html)

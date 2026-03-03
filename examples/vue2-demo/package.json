@@ -1,0 +1,24 @@
+{
+  "name": "vue2-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vue/compat": "^3.5.29",
+    "@youngsdream/exposure": "workspace:*",
+    "@youngsdream/permission": "workspace:*",
+    "vue": "^2.7.16",
+    "vue-router": "^3.6.5",
+    "vue2-zoom-image": "^1.0.0",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0",
+    "vite-plugin-vue2": "^2.0.3",
+    "vue-template-compiler": "2.7.16"
+  }
+}
