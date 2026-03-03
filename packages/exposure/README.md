@@ -73,3 +73,5 @@ v-exposure:arg={ data: 'test', fn: fn }
 | data | 透传数据 | any | - | 透传给回调函数的数据 |
 | fn | 回调函数 | function | - | 曝光时触发的回调函数 
 
+
+   
