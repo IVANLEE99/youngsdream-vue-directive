@@ -30,42 +30,42 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      # 2️ 安装 pnpm（关键）
+      # 安装 pnpm（关键）
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
-        # 1️⃣ 安装 Node
+      # 安装 Node
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: 'pnpm'
-      # 4️ 安装依赖（workspace 模式）
+      # 清理 node_modules 和 pnpm-lock.yaml
+      - name: Clean dependencies
+        run: rm -rf node_modules pnpm-lock.yaml
+      # 安装依赖（workspace 模式）
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 5⃣ 先构建所有 packages（核心库）
+      # 安装 Vue2 依赖
+      - name: Install Vue2 dependencies
+        run: pnpm add vue@2.7.16 vue-template-compiler@2.7.16 -F vue2-demo
+
+      # 先构建所有 packages（核心库）
       - name: Build packages
-        run: pnpm -r --filter ./packages/** build
+        run: pnpm build
 
-      # 6⃣ 构建 Vue3 示例
-      - name: Build Vue3 demo
-        run: pnpm --filter vue3-demo build
-
-      # ️⃣ 构建 Vue2 示例
-      - name: Build Vue2 demo
-        run: pnpm --filter vue2-demo build
-      # 5️ 配置 GitHub Pages
+      # 配置 GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      # 6️⃣ 上传构建产物
+      # 上传构建产物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           # 上传 dist 文件夹
           path: 'examples'
-      # 7️⃣ 部署到 GitHub Pages
+      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
