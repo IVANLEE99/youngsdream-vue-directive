@@ -69,3 +69,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      # 发布到 npm
+      - name: Publish to npm
+        if: github.ref == 'refs/heads/main'
+        run: pnpm -r publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

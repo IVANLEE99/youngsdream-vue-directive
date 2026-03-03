@@ -27,3 +27,10 @@ pnpm build
 ## Examples
 
 [在线操作示例](https://IVANLEE99.github.io/youngsdream-vue-directive/index.html)
+
+## 指令 [v-permission](https://github.com/IVANLEE99/youngsdream-vue-directive/tree/main/packages/permission) 权限控制
+
+## 指令 [v-exposure](https://github.com/IVANLEE99/youngsdream-vue-directive/tree/main/packages/exposure) 页面曝光
+
+
+
