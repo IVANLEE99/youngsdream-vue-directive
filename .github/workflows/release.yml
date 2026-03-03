@@ -30,17 +30,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        # 1️⃣ 安装 Node
-      - name: Set up Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: lts/*
-          cache: 'npm'
       # 2️ 安装 pnpm（关键）
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
+        # 1️⃣ 安装 Node
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: 'pnpm'
       # 4️ 安装依赖（workspace 模式）
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
