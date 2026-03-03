@@ -4,24 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Examples</title>
+    <style>
+      .box {
+        display: flex;
+      }
+      .box {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      .left,
+      .right {
+        flex: 1;
+      }
+    </style>
   </head>
   <body>
     <h1>Examples</h1>
-    vue2
-    <iframe
-      src="./vue2-demo/dist/index.html"
-      frameborder="0"
-      width="100vw"
-      height="100vh"
-      style="width: 100vw; height: 100vh"
-    ></iframe>
-    vue3
-    <iframe
-      src="./vue3-demo/dist/index.html"
-      frameborder="0"
-      width="100vw"
-      height="100vh"
-      style="width: 100vw; height: 100vh"
-    ></iframe>
+    <div class="box">
+      <div class="left">
+        <div>vue2</div>
+        <iframe
+          src="/youngsdream-vue-directive/examples/vue2-demo/dist/index.html"
+          frameborder="0"
+          width="50vw"
+          height="100vh"
+          style="width: 50vw; height: 100vh"
+        ></iframe>
+      </div>
+
+      <div class="left">
+        <div>vue3</div>
+        <iframe
+          src="/youngsdream-vue-directive/examples/vue3-demo/dist/index.html"
+          frameborder="0"
+          width="50vw"
+          height="100vh"
+          style="width: 50vw; height: 100vh"
+        ></iframe>
+      </div>
+    </div>
   </body>
 </html>

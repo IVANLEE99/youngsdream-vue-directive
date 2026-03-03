@@ -35,19 +35,28 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
-          cache: 'npm'
-      # 2️⃣ 安装 pnpm（关键）
+          cache: 'pnpm'
+      # 2️ 安装 pnpm（关键）
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
-      # 3️⃣ 安装依赖
+      # 4️ 安装依赖（workspace 模式）
       - name: Install dependencies
-        run: pnpm install
-      # 4️⃣ 构建
-      - name: Build
-        run: pnpm run build
-      # 5️⃣ 配置 GitHub Pages
+        run: pnpm install --frozen-lockfile
+
+      # 5⃣ 先构建所有 packages（核心库）
+      - name: Build packages
+        run: pnpm -r --filter ./packages/** build
+
+      # 6⃣ 构建 Vue3 示例
+      - name: Build Vue3 demo
+        run: pnpm --filter vue3-demo build
+
+      # ️⃣ 构建 Vue2 示例
+      - name: Build Vue2 demo
+        run: pnpm --filter vue2-demo build
+      # 5️ 配置 GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       # 6️⃣ 上传构建产物

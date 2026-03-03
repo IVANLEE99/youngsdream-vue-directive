@@ -11,7 +11,7 @@
     "@vue/compat": "^3.5.29",
     "@youngsdream/exposure": "workspace:*",
     "@youngsdream/permission": "workspace:*",
-    "vue": "^2.7.16",
+    "vue": "2.7.16",
     "vue-router": "^3.6.5",
     "vue2-zoom-image": "^1.0.0",
     "vuex": "^3.6.2"

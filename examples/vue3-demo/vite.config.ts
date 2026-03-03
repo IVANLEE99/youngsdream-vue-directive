@@ -3,6 +3,6 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/youngsdream-vue-directive/examples/vue3-demo",
+  base: "/youngsdream-vue-directive/examples/vue3-demo/dist",
   plugins: [vue()],
 });
