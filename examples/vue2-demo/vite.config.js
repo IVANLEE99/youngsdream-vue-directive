@@ -3,7 +3,7 @@ import { createVuePlugin } from "vite-plugin-vue2";
 import path from "path";
 
 export default defineConfig({
-  base: "/youngsdream-vue-directive/examples/vue2-demo/dist",
+  base: "/youngsdream-vue-directive/vue2-demo/dist",
   plugins: [createVuePlugin()],
   resolve: {
     alias: {
